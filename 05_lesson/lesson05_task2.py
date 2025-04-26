@@ -6,11 +6,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 # Настройка драйвера, если вдруг его нет
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-# Переход на страницу
-driver.get("http://uitestingplayground.com/dynamicid")
+try:
 
-# Поиск и клик по синей кнопке (используем CSS-селектор)
-blue_button = driver.find_element(By.CSS_SELECTOR, "button.btn-primary")
-blue_button.click()
+    # Переход на страницу
+    driver.get("http://uitestingplayground.com/dynamicid")
 
-print("Кнопка успешно нажата!")
+    # Поиск и клик по синей кнопке (используем CSS-селектор)
+    blue_button = driver.find_element(By.CSS_SELECTOR, "button.btn-primary")
+    blue_button.click()
+
+    print("Кнопка успешно нажата!")
+
+finally:
+
+    # Закрытие браузера
+    driver.quit()

@@ -4,15 +4,24 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Настройка драйвера Chrome
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+driver = webdriver.Chrome(
+    service=ChromeService(ChromeDriverManager().install())
+)
 
-# Переход на страницу
-driver.get("http://uitestingplayground.com/classattr")
+try:
 
-# Поиск синей кнопки по классу (она имеет класс 'btn-primary')
-blue_button = driver.find_element(By.CSS_SELECTOR, ".btn-primary")
+    # Переход на страницу
+    driver.get("http://uitestingplayground.com/classattr")
 
-# Клик по кнопке
-blue_button.click()
+    # Поиск синей кнопки по классу (она имеет класс 'btn-primary')
+    blue_button = driver.find_element(By.CSS_SELECTOR, ".btn-primary")
 
-input("Нажмите кнопку OK, чтобы подтвердить действие")
+    # Клик по кнопке
+    blue_button.click()
+
+    print("Нажмите кнопку OK, чтобы подтвердить действие")
+
+finally:
+
+    # Закрыть браузер
+    driver.quit()
