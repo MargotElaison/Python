@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
         # Переход в корзину
         cart_page = inventory_page.go_to_cart()
-        time.sleep(15)
+        time.sleep(10)
 
         # Проверка товара в корзине
         if cart_page.verify_item_in_cart("Sauce Labs Backpack"):

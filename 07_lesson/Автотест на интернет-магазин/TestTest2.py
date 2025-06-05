@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# Классы Page Object
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
@@ -83,7 +82,6 @@ class CheckoutPage:
         return self.driver.find_element(By.CLASS_NAME, "summary_total_label").text
 
 
-# Основной тест
 driver = webdriver.Chrome()
 
 try:
